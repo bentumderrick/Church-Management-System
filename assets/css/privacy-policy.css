@@ -1,0 +1,170 @@
+/* ===== assets/css/privacy-policy.css ===== */
+/* Styles specific to the Privacy Policy page.
+   Sidebar, .main-content, .header-section, .back-btn,
+   .error-message/.success-message already live in style.css. */
+
+/* ===== PRIVACY CONTAINER ===== */
+.privacy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.privacy-container h1 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.privacy-container h1 i {
+    color: orange;
+}
+.contact-info-item .value {
+    color: white;
+    font-weight: 500;
+    margin-top: 3px;
+    word-break: break-all; /* Forces breaking of long text */
+    max-width: 100%;
+}
+.privacy-meta {
+    color: #adb5bd;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.privacy-container h2 {
+    color: #4dabf7;
+    font-size: 1.3rem;
+    margin: 30px 0 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.privacy-container h2 i {
+    color: orange;
+    font-size: 1.1rem;
+    width: 24px;
+}
+
+.privacy-container p {
+    color: #e9ecef;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.privacy-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 20px;
+}
+
+.privacy-container ul li {
+    color: #e9ecef;
+    line-height: 1.8;
+    padding: 6px 0 6px 25px;
+    position: relative;
+}
+
+.privacy-container ul li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: orange;
+    font-weight: bold;
+}
+
+.privacy-container .highlight-box {
+    background: rgba(255, 165, 0, 0.08);
+    border-left: 3px solid orange;
+    padding: 20px 25px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+}
+
+.privacy-container .highlight-box p {
+    margin: 0;
+    color: #e9ecef;
+}
+
+.privacy-container .highlight-box strong {
+    color: orange;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.contact-info-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-info-item:hover {
+    border-color: rgba(255, 165, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.contact-info-item i {
+    color: orange;
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.contact-info-item .label {
+    color: #adb5bd;
+    font-size: 0.8rem;
+}
+
+.contact-info-item .value {
+    color: white;
+    font-weight: 500;
+    margin-top: 3px;
+}
+
+.last-updated {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .privacy-container {
+        padding: 25px 20px;
+    }
+    .privacy-container h1 {
+        font-size: 1.5rem;
+    }
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .privacy-container {
+        padding: 20px 15px;
+    }
+    .privacy-container h2 {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,576 @@
+/* ===== assets/css/music.css ===== */
+/* Styles specific to the Music page.
+   Sidebar, .main-content, .header-section, .back-btn,
+   .error-message/.success-message, .submit-btn and .form-group
+   already live in style.css. */
+
+/* ===== STATS ===== */
+.music-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    border-color: rgba(255, 165, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.stat-box .number {
+    font-size: 28px;
+    font-weight: bold;
+    color: orange;
+}
+
+.stat-box .label {
+    font-size: 12px;
+    color: #adb5bd;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+}
+
+/* ===== TOOLBAR ===== */
+.music-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: orange;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 5px;
+}
+
+.view-toggle button {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #adb5bd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-toggle button.active {
+    background: rgba(255, 165, 0, 0.15);
+    border-color: orange;
+    color: orange;
+}
+
+.view-toggle button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== GRID VIEW ===== */
+.hymns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.hymn-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hymn-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 165, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hymn-card .cover {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hymn-card .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hymn-card .cover .play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.hymn-card:hover .cover .play-overlay {
+    display: flex;
+}
+
+.hymn-card .cover .play-overlay i {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+}
+
+.hymn-card .info {
+    padding: 15px;
+}
+
+.hymn-card .info .number {
+    font-size: 0.75rem;
+    color: orange;
+    font-weight: 600;
+    background: rgba(255, 165, 0, 0.1);
+    padding: 2px 10px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.hymn-card .info h3 {
+    color: white;
+    margin: 8px 0 5px 0;
+    font-size: 1rem;
+}
+
+.hymn-card .info .meta {
+    font-size: 0.8rem;
+    color: #6c757d;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hymn-card .info .meta span i {
+    margin-right: 4px;
+}
+
+/* ===== LIST VIEW ===== */
+.hymns-list .hymn-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.hymns-list .hymn-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 165, 0, 0.2);
+}
+
+.hymns-list .hymn-item .play-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 165, 0, 0.15);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.hymns-list .hymn-item .play-btn:hover {
+    background: rgba(255, 165, 0, 0.25);
+}
+
+.hymns-list .hymn-item .info {
+    flex: 1;
+}
+
+.hymns-list .hymn-item .info .number {
+    font-size: 0.7rem;
+    color: orange;
+}
+
+.hymns-list .hymn-item .info h4 {
+    color: white;
+    font-size: 0.95rem;
+}
+
+.hymns-list .hymn-item .info .meta {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+.hymns-list .hymn-item .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.hymns-list .hymn-item .actions button {
+    background: none;
+    border: none;
+    color: #adb5bd;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.hymns-list .hymn-item .actions button:hover {
+    color: orange;
+}
+
+/* ===== MUSIC PLAYER (Fixed Bottom) ===== */
+.music-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0c1a2b;
+    border-top: 1px solid rgba(255, 165, 0, 0.2);
+    padding: 12px 20px;
+    z-index: 1500;
+    display: none;
+    backdrop-filter: blur(10px);
+}
+
+.music-player.active {
+    display: block;
+}
+
+.music-player .player-inner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.music-player .player-inner .cover-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.music-player .player-inner .cover-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.music-player .player-inner .song-info {
+    flex: 1;
+    min-width: 120px;
+}
+
+.music-player .player-inner .song-info .title {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.music-player .player-inner .song-info .artist {
+    color: #adb5bd;
+    font-size: 0.75rem;
+}
+
+.music-player .player-inner .controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 2;
+    justify-content: center;
+}
+
+.music-player .player-inner .controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.music-player .player-inner .controls button:hover {
+    color: orange;
+}
+
+.music-player .player-inner .controls button.play-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 165, 0, 0.2);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    font-size: 1.3rem;
+}
+
+.music-player .player-inner .controls button.play-btn:hover {
+    background: rgba(255, 165, 0, 0.3);
+}
+
+.music-player .player-inner .progress-container {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-player .player-inner .progress-container .time {
+    color: #adb5bd;
+    font-size: 0.75rem;
+    min-width: 40px;
+}
+
+.music-player .player-inner .progress-container .progress-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.music-player .player-inner .progress-container .progress-bar .progress-fill {
+    height: 100%;
+    background: orange;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.music-player .player-inner .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-player .player-inner .right-controls button {
+    background: none;
+    border: none;
+    color: #adb5bd;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.music-player .player-inner .right-controls button:hover {
+    color: orange;
+}
+
+.music-player .player-inner .right-controls .download-btn {
+    color: #2ecc71;
+}
+
+.music-player .player-inner .right-controls .download-btn:hover {
+    color: #27ae60;
+}
+
+/* ===== ADMIN UPLOAD FORM ===== */
+.upload-section {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 30px;
+}
+
+.upload-section h2 {
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upload-section h2 i {
+    color: orange;
+}
+
+.upload-section .file-input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.upload-section .file-input-wrapper input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.upload-section .file-input-wrapper .file-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #adb5bd;
+}
+
+/* ===== LYRICS MODAL ===== */
+.lyrics-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.lyrics-modal.active {
+    display: flex;
+}
+
+.lyrics-modal .modal-content {
+    background: #0c1a2b;
+    max-width: 700px;
+    width: 100%;
+    max-height: 80vh;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.lyrics-modal .modal-content .close-btn {
+    float: right;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.lyrics-modal .modal-content .close-btn:hover {
+    color: orange;
+}
+
+.lyrics-modal .modal-content h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.lyrics-modal .modal-content .lyrics-text {
+    color: #e9ecef;
+    line-height: 2;
+    white-space: pre-wrap;
+    font-family: 'Georgia', serif;
+}
+
+.lyrics-modal .modal-content .lyrics-text .highlight {
+    color: orange;
+    font-weight: bold;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .hymns-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .music-player .player-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .music-player .player-inner .cover-small {
+        width: 40px;
+        height: 40px;
+    }
+    .music-player .player-inner .song-info {
+        min-width: 80px;
+    }
+    .music-player .player-inner .controls {
+        flex: 1;
+    }
+    .music-player .player-inner .progress-container {
+        flex: 1;
+        min-width: 100%;
+    }
+    .music-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-box {
+        max-width: 100%;
+    }
+    .view-toggle {
+        justify-content: center;
+    }
+    .music-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hymns-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+}

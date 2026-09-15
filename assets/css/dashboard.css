@@ -1,0 +1,336 @@
+/* ===== assets/css/dashboard.css ===== */
+/* Styles specific to the Member Dashboard page.
+   Sidebar, .main-content, .header-section, .back-btn,
+   .error-message/.success-message, .submit-btn and .form-group
+   already live in style.css. */
+
+/* ===== PROFILE HEADER ===== */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h2 {
+    color: white;
+    margin: 0 0 5px 0;
+}
+
+.profile-info .role-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Role Badge Colors */
+.role-badge.developer {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+}
+.role-badge.admin {
+    background: rgba(255, 165, 0, 0.2);
+    color: orange;
+}
+.role-badge.pastor {
+    background: rgba(52, 152, 219, 0.2);
+    color: #3498db;
+}
+.role-badge.usher {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+}
+.role-badge.member {
+    background: rgba(155, 89, 182, 0.2);
+    color: #9b59b6;
+}
+
+/* ===== STATS GRID ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: rgba(255, 165, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.stat-card .number {
+    font-size: 28px;
+    font-weight: bold;
+    color: orange;
+}
+
+.stat-card .number.present {
+    color: #2ecc71;
+}
+
+.stat-card .number.late {
+    color: #f39c12;
+}
+
+.stat-card .number.offering {
+    color: #2ecc71;
+}
+
+.stat-card .label {
+    font-size: 12px;
+    color: #adb5bd;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+}
+
+.stat-card.pending {
+    border-color: rgba(255, 165, 0, 0.3);
+}
+
+.stat-card.pending .number {
+    color: orange;
+}
+
+/* ===== PROFILE CARDS ===== */
+.profile-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+}
+
+.profile-card h2 {
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-card h2 i {
+    color: orange;
+}
+
+.profile-card.danger {
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+.profile-card.danger h2 {
+    color: #e74c3c;
+}
+
+/* ===== PENDING BADGE ===== */
+.pending-badge {
+    display: inline-block;
+    background: rgba(255, 165, 0, 0.2);
+    color: orange;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin-left: 10px;
+}
+
+/* ===== APPROVAL NOTICE ===== */
+.approval-notice {
+    background: rgba(255, 165, 0, 0.08);
+    border: 1px solid rgba(255, 165, 0, 0.2);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #adb5bd;
+}
+
+.approval-notice i {
+    color: orange;
+    font-size: 1.2rem;
+}
+
+/* ===== FORM ROW ===== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #adb5bd;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: orange;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.form-group .readonly {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===== BUTTONS ===== */
+.submit-btn {
+    background: orange;
+    color: #0c1a2b;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background: #ff8c00;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-danger {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+.btn-danger:hover {
+    background: rgba(231, 76, 60, 0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+    }
+
+    .profile-info h2 {
+        font-size: 1.3rem;
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+
+    .profile-card {
+        padding: 15px;
+    }
+
+    .profile-card h2 {
+        font-size: 1.1rem;
+        flex-wrap: wrap;
+    }
+
+    .pending-badge {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,283 @@
+/* ===== assets/css/attendance.css ===== */
+/* Styles specific to the Attendance page. Sidebar, .main-content,
+   .header-section, .back-btn, .error-message/.success-message,
+   .submit-btn and .form-group already live in style.css. */
+
+.attendance-container {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.events-sidebar {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.events-sidebar h2 {
+    color: white;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.events-sidebar::-webkit-scrollbar { width: 6px; }
+.events-sidebar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 3px; }
+.events-sidebar::-webkit-scrollbar-thumb { background: rgba(255, 165, 0, 0.3); border-radius: 3px; }
+.events-sidebar::-webkit-scrollbar-thumb:hover { background: rgba(255, 165, 0, 0.5); }
+
+.attendance-main {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-list {
+    list-style: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.event-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.event-item:hover {
+    background: rgba(255, 165, 0, 0.08);
+    border-color: rgba(255, 165, 0, 0.2);
+    transform: translateX(5px);
+}
+
+.event-item.active {
+    background: rgba(255, 165, 0, 0.15);
+    border-color: orange;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.1);
+}
+
+.event-item .event-name { font-weight: 600; color: white; margin-bottom: 5px; font-size: 15px; }
+.event-item .event-date { font-size: 0.8rem; color: #adb5bd; margin-bottom: 5px; }
+.event-item .event-type {
+    font-size: 0.75rem;
+    background: rgba(52, 152, 219, 0.2);
+    color: #3498db;
+    padding: 2px 10px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.create-event-form {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.create-event-form h3 {
+    color: white;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.attendance-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover { border-color: rgba(255, 165, 0, 0.2); transform: translateY(-2px); }
+
+.stat-label {
+    font-size: 12px;
+    color: #adb5bd;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.stat-number { font-size: 28px; font-weight: bold; color: orange; }
+.stat-number.status-present { color: #2ecc71; }
+.stat-number.status-absent { color: #e74c3c; }
+.stat-number.status-late { color: #f39c12; }
+.stat-number.status-excused { color: #9b59b6; }
+.stat-number.offering-stat { color: #2ecc71; font-size: 22px; }
+
+.offering-section {
+    background: rgba(52, 152, 219, 0.08);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.offering-header { display: flex; align-items: center; gap: 10px; color: #3498db; margin-bottom: 15px; }
+.offering-header h3 { margin: 0; font-size: 18px; }
+
+.offering-input-group { display: grid; grid-template-columns: 1fr 2fr; gap: 15px; }
+.offering-input-group label { display: block; margin-bottom: 5px; color: #adb5bd; font-size: 13px; }
+.offering-input-group label small { display: block; color: #6c757d; font-size: 11px; margin-top: 3px; }
+.offering-input-group input {
+    width: 100%;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.offering-input-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.attendance-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
+.attendance-table thead { background: rgba(255, 255, 255, 0.05); }
+.attendance-table th {
+    padding: 12px 15px;
+    text-align: left;
+    color: #adb5bd;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255, 165, 0, 0.2);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.attendance-table td { padding: 12px 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: middle; }
+.attendance-table tr:hover td { background: rgba(255, 255, 255, 0.03); }
+.attendance-table tr:last-child td { border-bottom: none; }
+.attendance-table strong { color: white; }
+.attendance-table small { color: #6c757d; }
+
+.status-select {
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    min-width: 110px;
+}
+.status-select:focus { outline: none; border-color: orange; }
+.status-select option { background: #0c1a2b; color: white; padding: 8px; }
+.status-select.status-present { border-color: rgba(46, 204, 113, 0.5); color: #2ecc71; }
+.status-select.status-absent { border-color: rgba(231, 76, 60, 0.5); color: #e74c3c; }
+.status-select.status-late { border-color: rgba(243, 156, 18, 0.5); color: #f39c12; }
+.status-select.status-excused { border-color: rgba(155, 89, 182, 0.5); color: #9b59b6; }
+
+.no-event-selected { text-align: center; padding: 60px 20px; color: #adb5bd; }
+.no-event-selected i { font-size: 4rem; margin-bottom: 20px; color: rgba(255, 255, 255, 0.1); }
+.no-event-selected h3 { color: white; margin-bottom: 10px; }
+
+.add-btn {
+    background: orange;
+    color: #0c1a2b;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.add-btn:hover { background: #ff8c00; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(255, 165, 0, 0.3); }
+
+.event-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.delete-event-btn, .delete-confirm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgba(231,76,60,.45);
+    border-radius: 6px;
+    padding: 8px 14px;
+    background: rgba(231,76,60,.12);
+    color: #ff7675;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+.delete-event-btn:hover, .delete-confirm-btn:hover { background: rgba(231,76,60,.22); }
+
+.delete-modal[hidden] { display: none; }
+.delete-modal { position: fixed; inset: 0; z-index: 3000; display: grid; place-items: center; padding: 20px; }
+.delete-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.72); }
+.delete-modal-dialog {
+    position: relative;
+    width: min(460px, 100%);
+    background: #0c1a2b;
+    border: 1px solid rgba(231,76,60,.35);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 24px 70px rgba(0,0,0,.5);
+}
+.delete-modal-dialog h3 { color: white; margin: 10px 0; }
+.delete-modal-dialog p { color: #adb5bd; line-height: 1.6; margin-bottom: 20px; }
+.delete-modal-dialog label { display: block; color: white; margin-bottom: 8px; font-size: 14px; }
+.delete-warning-icon { color: #ff7675; font-size: 30px; }
+.delete-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border: 0;
+    background: transparent;
+    color: #adb5bd;
+    font-size: 28px;
+    cursor: pointer;
+}
+.delete-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+
+body.modal-open { overflow: hidden; }
+
+@media (max-width: 1024px) {
+    .attendance-container { grid-template-columns: 1fr; }
+    .events-sidebar { max-height: none; }
+    .offering-input-group { grid-template-columns: 1fr; }
+    .attendance-stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .attendance-stats { grid-template-columns: 1fr 1fr; }
+    .attendance-table { font-size: 12px; }
+    .attendance-table th, .attendance-table td { padding: 8px 10px; }
+    .status-select { font-size: 12px; padding: 4px 8px; min-width: 80px; }
+}
+
+@media (max-width: 480px) {
+    .attendance-stats { grid-template-columns: 1fr; }
+}
