@@ -1,0 +1,16 @@
+User-agent: *
+Disallow: /pages/
+Disallow: /uploads/hymns/
+Disallow: /uploads/covers/
+Disallow: /dashboard
+Disallow: /index.php?page=dashboard
+Disallow: /index.php?page=add-member
+Disallow: /index.php?page=lookup
+Disallow: /index.php?page=members
+Disallow: /index.php?page=attendance
+Disallow: /index.php?page=add-user
+Disallow: /index.php?page=member-dashboard
+Disallow: /index.php?page=profile
+Disallow: /index.php?page=privacy-policy
+Allow: /index.php?page=music
+Allow: /login.php
