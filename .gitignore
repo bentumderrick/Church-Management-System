@@ -1,0 +1,23 @@
+# Secrets
+secured/.env
+secured/env.php
+.env
+.env.local
+
+# Google verification
+google84a89be5fafd2e8c.html
+
+# User uploads (keep the folders, ignore the files)
+uploads/hymns/*
+!uploads/hymns/.gitkeep
+uploads/covers/*
+!uploads/covers/.gitkeep
+uploads/profile_photos/*
+!uploads/profile_photos/.gitkeep
+uploads/avatars/*
+!uploads/avatars/.gitkeep
+
+# Logs and system files
+*.log
+.DS_Store
+Thumbs.db
